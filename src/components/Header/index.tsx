@@ -1,5 +1,5 @@
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
-import logoCoffeeDelivery from '../assets/logo-coffee-delivery.png'
+import coffeeDeliveryLogo from '../../assets/coffee-delivery-logo.svg'
 import {
   AddressesContainer,
   HeaderContainer,
@@ -11,7 +11,7 @@ export function Header() {
   return (
     <HeaderContainer>
       <span>
-        <img src={logoCoffeeDelivery} alt="Imagem de um copo com café" />
+        <img src={coffeeDeliveryLogo} alt="Imagem de um copo com café" />
       </span>
 
       <RightHeaderContainer>
