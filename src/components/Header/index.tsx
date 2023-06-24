@@ -20,7 +20,7 @@ export function Header() {
           <p>Porto Alegre, RS</p>
         </AddressesContainer>
 
-        <a>
+        <a href="/checkout">
           <ShoppingCart
             size={22}
             weight="fill"
