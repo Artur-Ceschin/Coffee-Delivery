@@ -10,9 +10,9 @@ export function Header() {
   const theme = useTheme()
   return (
     <HeaderContainer>
-      <span>
+      <a href="/">
         <img src={coffeeDeliveryLogo} alt="Imagem de um copo com café" />
-      </span>
+      </a>
 
       <RightHeaderContainer>
         <AddressesContainer>
