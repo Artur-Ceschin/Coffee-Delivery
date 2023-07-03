@@ -1,5 +1,5 @@
-import { ShoppingCart } from '@phosphor-icons/react'
-import americanExpress from '../../../public/coffees/coffee-cream.png'
+import { Minus, Plus, ShoppingCart } from '@phosphor-icons/react'
+
 import {
   CoffeeImage,
   CoffeeOptionContainer,
@@ -45,9 +45,13 @@ export function CoffeeCard({
             <p>{price}</p>
           </div>
           <div className="quantity">
-            <p>
-              <button>-</button> 1 <button>+</button>
-            </p>
+            <button>
+              <Minus size={14} />
+            </button>
+            <span>1</span>
+            <button>
+              <Plus size={14} />
+            </button>
           </div>
           <div className="shopping-cart">
             <ShoppingCart size={22} weight="fill" color="white" />

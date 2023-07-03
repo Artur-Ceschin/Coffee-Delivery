@@ -101,12 +101,14 @@ export const CoffeePrice = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 4px;
     border-radius: 6px;
 
     button {
-      background-color: ${(props) => props.theme['base-button']};
+      background: none;
+      display: flex;
+      align-items: center;
       color: ${(props) => props.theme.purple};
-      font-size: 14px;
     }
   }
 

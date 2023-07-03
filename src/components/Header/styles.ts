@@ -5,6 +5,14 @@ export const HeaderContainer = styled.header`
   padding-bottom: 2rem;
   align-items: center;
   justify-content: space-between;
+`
+
+export const RightHeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.8rem;
 
   a {
     background-color: ${(props) => props.theme['yellow-light']};
@@ -19,14 +27,6 @@ export const HeaderContainer = styled.header`
       filter: brightness(0.9);
     }
   }
-`
-
-export const RightHeaderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 0.8rem;
 `
 
 export const AddressesContainer = styled.div`
