@@ -23,5 +23,4 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     border: none;
   }
-
 `

@@ -134,12 +134,13 @@ export const ValuesDetails = styled.div`
   }
 `
 
-export const ConfirmOderButton = styled.button`
+export const ConfirmOderButton = styled.a`
   width: 100%;
   padding: 12px 8px;
   border-radius: 6px;
   background-color: ${(props) => props.theme.yellow};
 
+  text-decoration: none;
   margin-top: 24px;
 
   text-align: center;

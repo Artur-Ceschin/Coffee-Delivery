@@ -8,7 +8,7 @@ import {
   FeatureItem,
 } from './styles'
 
-import CoffeeMainImage from '../../../../assets/coffee-main-image.png'
+import HeroImage from '../../../../assets/hero-image.svg'
 
 export function Hero() {
   const theme = useTheme()
@@ -24,26 +24,26 @@ export function Hero() {
         </MainHomeText>
 
         <FeaturesSection>
-          <FeatureItem backgroundcolor={theme?.['yellow-dark']}>
+          <FeatureItem backgroundColor={theme?.['yellow-dark']}>
             <div>
               <ShoppingCart weight="fill" color="white" />
             </div>
             <p>Compra simples e segura</p>
           </FeatureItem>
 
-          <FeatureItem backgroundcolor={theme?.['base-text']}>
+          <FeatureItem backgroundColor={theme?.['base-text']}>
             <div>
               <Package weight="fill" color="white" />
             </div>
             <p>Embalagem mantém o café intacto</p>
           </FeatureItem>
-          <FeatureItem backgroundcolor={theme?.yellow}>
+          <FeatureItem backgroundColor={theme?.yellow}>
             <div>
               <Timer weight="fill" color="white" />
             </div>
             <p>Entrega rápida e rastreada</p>
           </FeatureItem>
-          <FeatureItem backgroundcolor={theme?.purple}>
+          <FeatureItem backgroundColor={theme?.purple}>
             <div>
               <Coffee weight="fill" color="white" />
             </div>
@@ -53,7 +53,7 @@ export function Hero() {
       </HomeContent>
 
       <div>
-        <img src={CoffeeMainImage} alt="" />
+        <img src={HeroImage} alt="" />
       </div>
     </HomeContentLayout>
   )

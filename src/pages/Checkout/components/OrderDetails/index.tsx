@@ -26,11 +26,11 @@ export function OrderDetails() {
               <p>Expresso Tradicional</p>
               <div className="actions">
                 <AddOrRemoveItem>
-                  <button>
+                  <button type="button" aria-label="Diminuir quantidade">
                     <Minus size={14} color={theme?.purple} />
-                  </button>{' '}
-                  1{' '}
-                  <button>
+                  </button>
+                  1
+                  <button type="button" aria-label="Aumentar quantidade">
                     <Plus size={14} color={theme?.purple} />
                   </button>
                 </AddOrRemoveItem>
@@ -57,11 +57,11 @@ export function OrderDetails() {
               <p>Expresso Tradicional</p>
               <div className="actions">
                 <AddOrRemoveItem>
-                  <button>
+                  <button type="button" aria-label="Diminuir quantidade">
                     <Minus size={14} color={theme?.purple} />
                   </button>{' '}
                   1{' '}
-                  <button>
+                  <button type="button" aria-label="Aumentar quantidade">
                     <Plus size={14} color={theme?.purple} />
                   </button>
                 </AddOrRemoveItem>
@@ -95,7 +95,7 @@ export function OrderDetails() {
         </div>
       </ValuesDetails>
 
-      <ConfirmOderButton>confirmar pedido</ConfirmOderButton>
+      <ConfirmOderButton href="/success">confirmar pedido</ConfirmOderButton>
       {/* </div> */}
     </OrderInfosContainer>
   )
