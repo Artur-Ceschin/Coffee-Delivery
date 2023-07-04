@@ -20,7 +20,7 @@ export function Success() {
       <main>
         <OrderReceiptContainer>
           <OrderSection>
-            <Icon iconBackgroundColor="purple">
+            <Icon iconbackgroundcolor="purple">
               <MapPin size={16} color="white" />
             </Icon>
 
@@ -30,7 +30,7 @@ export function Success() {
             </p>
           </OrderSection>
           <OrderSection>
-            <Icon iconBackgroundColor="yellow">
+            <Icon iconbackgroundcolor="yellow">
               <Timer size={16} color="white" />
             </Icon>
 
@@ -41,7 +41,7 @@ export function Success() {
           </OrderSection>
 
           <OrderSection>
-            <Icon iconBackgroundColor="yellowDark">
+            <Icon iconbackgroundcolor="yellowDark">
               <CurrencyDollar size={16} color="white" />
             </Icon>
 

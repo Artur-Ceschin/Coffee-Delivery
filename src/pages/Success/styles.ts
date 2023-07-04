@@ -74,14 +74,14 @@ const ICON_BACKGROUND_COLOR = {
 } as const
 
 interface IconProps {
-  iconBackgroundColor: keyof typeof ICON_BACKGROUND_COLOR
+  iconbackgroundcolor: keyof typeof ICON_BACKGROUND_COLOR
 }
 
 export const Icon = styled.div<IconProps>`
   width: 32px;
   height: 32px;
   background-color: ${(props) =>
-    props.theme[ICON_BACKGROUND_COLOR[props.iconBackgroundColor]]};
+    props.theme[ICON_BACKGROUND_COLOR[props.iconbackgroundcolor]]};
 
   display: flex;
   align-items: center;

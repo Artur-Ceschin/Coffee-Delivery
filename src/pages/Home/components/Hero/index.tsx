@@ -24,26 +24,26 @@ export function Hero() {
         </MainHomeText>
 
         <FeaturesSection>
-          <FeatureItem backgroundColor={theme?.['yellow-dark']}>
+          <FeatureItem backgroundcolor={theme?.['yellow-dark']}>
             <div>
               <ShoppingCart weight="fill" color="white" />
             </div>
             <p>Compra simples e segura</p>
           </FeatureItem>
 
-          <FeatureItem backgroundColor={theme?.['base-text']}>
+          <FeatureItem backgroundcolor={theme?.['base-text']}>
             <div>
               <Package weight="fill" color="white" />
             </div>
             <p>Embalagem mantém o café intacto</p>
           </FeatureItem>
-          <FeatureItem backgroundColor={theme?.yellow}>
+          <FeatureItem backgroundcolor={theme?.yellow}>
             <div>
               <Timer weight="fill" color="white" />
             </div>
             <p>Entrega rápida e rastreada</p>
           </FeatureItem>
-          <FeatureItem backgroundColor={theme?.purple}>
+          <FeatureItem backgroundcolor={theme?.purple}>
             <div>
               <Coffee weight="fill" color="white" />
             </div>

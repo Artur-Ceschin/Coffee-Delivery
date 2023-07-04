@@ -34,7 +34,7 @@ export const FeaturesSection = styled.section`
 `
 
 interface FeatureItemProps {
-  backgroundColor: string | undefined
+  backgroundcolor: string | undefined
 }
 
 export const FeatureItem = styled.div<FeatureItemProps>`
@@ -50,7 +50,7 @@ export const FeatureItem = styled.div<FeatureItemProps>`
     justify-content: center;
     align-items: center;
 
-    background-color: ${(props) => props.backgroundColor};
+    background-color: ${(props) => props.backgroundcolor};
     border-radius: 100px;
   }
 `
