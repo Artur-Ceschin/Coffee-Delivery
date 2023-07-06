@@ -6,6 +6,7 @@ export const coffees = [
     description: 'O tradicional café feito com água quente e grãos moídos',
     image: 'traditional-express.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const coffees = [
     description: 'Expresso diluído, menos intenso que o tradicional',
     image: 'american-express.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const coffees = [
     description: 'Café expresso tradicional com espuma cremosa',
     image: 'creamy-express.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const coffees = [
     description: 'Bebida preparada com café expresso e cubos de gelo',
     image: 'ice-cream-express.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ export const coffees = [
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     image: 'coffee-cream.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 6,
@@ -47,6 +52,7 @@ export const coffees = [
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     image: 'latte.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ export const coffees = [
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     image: 'capuccino.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 8,
@@ -65,6 +72,7 @@ export const coffees = [
       'Café expresso misturado com um pouco de leite quente e espuma',
     image: 'macchiato.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 9,
@@ -73,6 +81,7 @@ export const coffees = [
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     image: 'mocaccino.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 10,
@@ -81,6 +90,7 @@ export const coffees = [
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     image: 'hot-chocolate.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 11,
@@ -90,6 +100,7 @@ export const coffees = [
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     image: 'cuban.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 12,
@@ -98,6 +109,7 @@ export const coffees = [
     description: 'Bebida adocicada preparada com café e leite de coco',
     image: 'hawaiian.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 13,
@@ -106,6 +118,7 @@ export const coffees = [
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     image: 'arabic.png',
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 14,
@@ -114,5 +127,6 @@ export const coffees = [
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     image: 'irish.png',
     price: 9.9,
+    quantity: 0,
   },
 ]

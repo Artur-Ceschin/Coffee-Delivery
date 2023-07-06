@@ -6,13 +6,14 @@ import {
   RightHeaderContainer,
 } from './styles'
 import { useTheme } from 'styled-components'
+import { Link } from 'react-router-dom'
 export function Header() {
   const theme = useTheme()
   return (
     <HeaderContainer>
-      <a href="/">
+      <Link to="/">
         <img src={coffeeDeliveryLogo} alt="Imagem de um copo com café" />
-      </a>
+      </Link>
 
       <RightHeaderContainer>
         <AddressesContainer>
@@ -20,13 +21,13 @@ export function Header() {
           <p>Porto Alegre, RS</p>
         </AddressesContainer>
 
-        <a href="/checkout">
+        <Link to="/checkout">
           <ShoppingCart
             size={22}
             weight="fill"
             color={theme?.['yellow-dark']}
           />
-        </a>
+        </Link>
       </RightHeaderContainer>
     </HeaderContainer>
   )

@@ -8,6 +8,7 @@ import {
 } from './styles'
 import { useContext } from 'react'
 import { CoffeesContext } from '../../../../context/CoffeesContext'
+import { Link } from 'react-router-dom'
 
 interface CoffeeCardProps {
   id: number
@@ -16,6 +17,7 @@ interface CoffeeCardProps {
   description: string
   image: string
   price: number
+  quantity: number
 }
 
 export function CoffeeCard({
@@ -25,21 +27,19 @@ export function CoffeeCard({
   description,
   image,
   price,
+  quantity,
 }: CoffeeCardProps) {
-  const { selectedCoffees, setSelectedCoffees } = useContext(CoffeesContext)
+  const { coffeesOnCart, decreaseCoffeeQuantity, increaseCoffeeQuantity } =
+    useContext(CoffeesContext)
 
-  function increaseCoffeeQuantity() {
-    const coffeeValues = { id, title, tags, description, image, price }
-    setSelectedCoffees((state) => [...state, coffeeValues])
-  }
-
-  function decreaseCoffeeQuantity(id: number) {
-    const coffeeIndex = selectedCoffees.findIndex((coffee) => coffee.id === id)
-    if (coffeeIndex !== -1) {
-      const updateCoffees = [...selectedCoffees]
-      updateCoffees.splice(coffeeIndex, 1)
-      setSelectedCoffees(updateCoffees)
-    }
+  const currentCoffeeData = {
+    id,
+    title,
+    tags,
+    description,
+    image,
+    price,
+    quantity,
   }
 
   return (
@@ -72,20 +72,18 @@ export function CoffeeCard({
             >
               <Minus size={14} />
             </button>
-            <span>
-              {selectedCoffees.filter((coffee) => coffee.id === id).length}
-            </span>
+            <span>{quantity}</span>
             <button
               type="button"
               aria-label="Aumentar quantidade"
-              onClick={increaseCoffeeQuantity}
+              onClick={() => increaseCoffeeQuantity(id)}
             >
               <Plus size={14} />
             </button>
           </div>
-          <div className="shopping-cart">
+          <Link to="/checkout" className="shopping-cart">
             <ShoppingCart size={22} weight="fill" color="white" />
-          </div>
+          </Link>
         </CoffeePrice>
       </CoffeeOptionContent>
     </CoffeeOptionContainer>

@@ -23,6 +23,7 @@ export function Home() {
               description={coffee.description}
               price={coffee.price}
               tags={coffee.tags}
+              quantity={coffee.quantity}
               key={coffee.id}
             />
           ))}
