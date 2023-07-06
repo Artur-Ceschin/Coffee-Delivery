@@ -6,8 +6,11 @@ import {
   CoffeeOptionContent,
   CoffeePrice,
 } from './styles'
+import { useContext } from 'react'
+import { CoffeesContext } from '../../../../context/CoffeesContext'
 
 interface CoffeeCardProps {
+  id: number
   tags: string[]
   title: string
   description: string
@@ -16,12 +19,29 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({
+  id,
   title,
   tags,
   description,
   image,
   price,
 }: CoffeeCardProps) {
+  const { selectedCoffees, setSelectedCoffees } = useContext(CoffeesContext)
+
+  function increaseCoffeeQuantity() {
+    const coffeeValues = { id, title, tags, description, image, price }
+    setSelectedCoffees((state) => [...state, coffeeValues])
+  }
+
+  function decreaseCoffeeQuantity(id: number) {
+    const coffeeIndex = selectedCoffees.findIndex((coffee) => coffee.id === id)
+    if (coffeeIndex !== -1) {
+      const updateCoffees = [...selectedCoffees]
+      updateCoffees.splice(coffeeIndex, 1)
+      setSelectedCoffees(updateCoffees)
+    }
+  }
+
   return (
     <CoffeeOptionContainer>
       <CoffeeImage>
@@ -45,11 +65,21 @@ export function CoffeeCard({
             <p>{price}</p>
           </div>
           <div className="quantity">
-            <button>
+            <button
+              type="button"
+              aria-label="Diminuir quantidade"
+              onClick={() => decreaseCoffeeQuantity(id)}
+            >
               <Minus size={14} />
             </button>
-            <span>1</span>
-            <button>
+            <span>
+              {selectedCoffees.filter((coffee) => coffee.id === id).length}
+            </span>
+            <button
+              type="button"
+              aria-label="Aumentar quantidade"
+              onClick={increaseCoffeeQuantity}
+            >
               <Plus size={14} />
             </button>
           </div>

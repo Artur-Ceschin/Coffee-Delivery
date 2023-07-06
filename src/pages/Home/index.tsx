@@ -4,7 +4,7 @@ import {
   OurCoffeesContainer,
 } from './styles'
 
-import { CoffeeCard } from '../../components/CoffeeCard'
+import { CoffeeCard } from './components/CoffeeCard'
 import { coffees } from '../../mock/coffee'
 import { Hero } from './components/Hero'
 
@@ -17,6 +17,7 @@ export function Home() {
         <OurCoffeesContainer>
           {coffees.map((coffee) => (
             <CoffeeCard
+              id={coffee.id}
               title={coffee.title}
               image={coffee.image}
               description={coffee.description}

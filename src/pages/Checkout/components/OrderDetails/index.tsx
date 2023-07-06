@@ -13,11 +13,14 @@ import {
 } from './styles'
 
 import CoffeeImage from '../../../../../public/coffees/ice-cream-express.png'
+import { useContext } from 'react'
+import { CoffeesContext } from '../../../../context/CoffeesContext'
 export function OrderDetails() {
+  const { selectedCoffees, setSelectedCoffees } = useContext(CoffeesContext)
+
   const theme = useTheme()
   return (
     <OrderInfosContainer>
-      {/* <div  className="coffee"> */}
       <CoffeeCardContainer>
         <CoffeeCardDetails>
           <div className="coffee-box">
@@ -49,36 +52,38 @@ export function OrderDetails() {
         <Divider />
       </CoffeeCardContainer>
 
-      <CoffeeCardContainer>
-        <CoffeeCardDetails>
-          <div className="coffee-box">
-            <img src={CoffeeImage} alt="" />
-            <div className="details">
-              <p>Expresso Tradicional</p>
-              <div className="actions">
-                <AddOrRemoveItem>
-                  <button type="button" aria-label="Diminuir quantidade">
-                    <Minus size={14} color={theme?.purple} />
-                  </button>{' '}
-                  1{' '}
-                  <button type="button" aria-label="Aumentar quantidade">
-                    <Plus size={14} color={theme?.purple} />
-                  </button>
-                </AddOrRemoveItem>
-                <RemoveItem>
-                  <Trash size={14} color={theme?.purple} /> remover
-                </RemoveItem>
+      {selectedCoffees.map((coffee) => (
+        <CoffeeCardContainer key={coffee.id}>
+          <CoffeeCardDetails>
+            <div className="coffee-box">
+              <img src={`coffees/${coffee.image}`} alt="" />
+              <div className="details">
+                <p>Expresso Tradicional</p>
+                <div className="actions">
+                  <AddOrRemoveItem>
+                    <button type="button" aria-label="Diminuir quantidade">
+                      <Minus size={14} color={theme?.purple} />
+                    </button>{' '}
+                    1{' '}
+                    <button type="button" aria-label="Aumentar quantidade">
+                      <Plus size={14} color={theme?.purple} />
+                    </button>
+                  </AddOrRemoveItem>
+                  <RemoveItem>
+                    <Trash size={14} color={theme?.purple} /> remover
+                  </RemoveItem>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="price">
-            <p>R$ 9,90</p>
-          </div>
-        </CoffeeCardDetails>
+            <div className="price">
+              <p>R$ 9,90</p>
+            </div>
+          </CoffeeCardDetails>
 
-        <Divider />
-      </CoffeeCardContainer>
+          <Divider />
+        </CoffeeCardContainer>
+      ))}
 
       <ValuesDetails>
         <div>
