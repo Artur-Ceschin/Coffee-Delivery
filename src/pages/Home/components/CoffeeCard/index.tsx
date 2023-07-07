@@ -42,6 +42,10 @@ export function CoffeeCard({
     quantity,
   }
 
+  const totalCoffeesQuantity = coffeesOnCart.filter(
+    (cartsCoffee) => cartsCoffee.id === id,
+  ).length
+
   return (
     <CoffeeOptionContainer>
       <CoffeeImage>
@@ -72,11 +76,11 @@ export function CoffeeCard({
             >
               <Minus size={14} />
             </button>
-            <span>{quantity}</span>
+            <span>{totalCoffeesQuantity}</span>
             <button
               type="button"
               aria-label="Aumentar quantidade"
-              onClick={() => increaseCoffeeQuantity(id)}
+              onClick={() => increaseCoffeeQuantity(currentCoffeeData)}
             >
               <Plus size={14} />
             </button>
