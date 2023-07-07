@@ -22,5 +22,8 @@ export const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
     border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
   }
 `
