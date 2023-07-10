@@ -30,6 +30,9 @@ export function coffeesOnCartReducer(state: CoffeeType[], action: any) {
       return updatedCoffeeCartList
     }
 
+    case ActionTypes.CLEAR_COFFEE_CART:
+      return []
+
     default:
       return state
   }

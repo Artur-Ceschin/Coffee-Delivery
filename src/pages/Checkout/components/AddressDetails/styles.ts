@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const AddressContainer = styled.div`
   height: 100%;
-  max-height: 372px;
+  /* max-height: 372px; */
 
   padding: 2.5rem;
 
@@ -37,26 +37,40 @@ export const HeadingTitle = styled.div`
 export const AddressFormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 `
 
 export const FlexAddressForm = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 `
 
 interface InputProps {
   width?: number
 }
 
-export const BaseInput = styled.input<InputProps>`
+export const InputContainer = styled.div<InputProps>`
+  height: fixed;
+  width: 100%;
+  max-width: ${(props) => props.width}px;
+  position: relative;
+
+  span {
+    position: absolute;
+    display: block;
+    color: ${(props) => props.theme['base-red']};
+    font-size: 12px;
+    font-style: italic;
+  }
+`
+
+export const BaseInput = styled.input`
   background-color: ${(props) => props.theme['base-input']};
   border: none;
   border-radius: 4px;
   padding: 12px;
   width: 100%;
-  max-width: ${(props) => props.width}px;
 
   border: 1px solid ${(props) => props.theme['base-button']};
 

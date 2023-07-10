@@ -5,10 +5,22 @@ import {
   HeadingTitle,
   PaymentMethodsContainer,
   PaymentMethodButton,
+  ErrorTest,
 } from './styles'
+import { useFormContext } from 'react-hook-form'
+import { NewAddressFormData } from '../..'
 
 export function PaymentOptions() {
   const theme = useTheme()
+
+  const {
+    register,
+    watch,
+    formState: { errors },
+  } = useFormContext<NewAddressFormData>()
+
+  const paymentMethod = watch('paymentMethod')
+
   return (
     <PaymentOptionsContainer>
       <HeadingTitle className="heading">
@@ -22,21 +34,57 @@ export function PaymentOptions() {
       </HeadingTitle>
 
       <PaymentMethodsContainer>
-        <PaymentMethodButton>
+        <PaymentMethodButton
+          htmlFor="creditCard"
+          isSelected={paymentMethod === 'creditCard'}
+          error={!!errors.paymentMethod}
+        >
           <CreditCard color={theme?.purple} />
+          <input
+            id="creditCard"
+            type="radio"
+            {...register('paymentMethod')}
+            value="creditCard"
+          />
           <p>Cartão de crédito</p>
         </PaymentMethodButton>
 
-        <PaymentMethodButton>
+        <PaymentMethodButton
+          htmlFor="debitCart"
+          isSelected={paymentMethod === 'debitCart'}
+          error={!!errors.paymentMethod}
+        >
           <Bank color={theme?.purple} />
+
+          <input
+            id="debitCart"
+            type="radio"
+            {...register('paymentMethod')}
+            value="debitCart"
+          />
           <p>Cartão de débito</p>
         </PaymentMethodButton>
 
-        <PaymentMethodButton>
+        <PaymentMethodButton
+          htmlFor="cash"
+          isSelected={paymentMethod === 'cash'}
+          error={!!errors.paymentMethod}
+        >
           <Money color={theme?.purple} />
+
+          <input
+            id="cash"
+            type="radio"
+            {...register('paymentMethod')}
+            value="cash"
+          />
           <p>Dinheiro</p>
         </PaymentMethodButton>
       </PaymentMethodsContainer>
+
+      {errors.paymentMethod && (
+        <ErrorTest>Selecione uma forma de pagamento</ErrorTest>
+      )}
     </PaymentOptionsContainer>
   )
 }

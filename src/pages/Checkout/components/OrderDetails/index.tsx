@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { Minus, Plus, Trash } from '@phosphor-icons/react'
 import { useTheme } from 'styled-components'
 
@@ -12,7 +13,6 @@ import {
   OrderInfosContainer,
 } from './styles'
 
-import { useContext } from 'react'
 import { CoffeesContext } from '../../../../context/CoffeesContext'
 
 interface CoffeeType {
@@ -91,22 +91,28 @@ export function OrderDetails() {
         </CoffeeCardContainer>
       ))}
 
-      <ValuesDetails>
-        <div>
-          <p className="heading">Total de itens</p>
-          <p>R$ {sumCoffeesPrice}</p>
-        </div>
-        <div className="heading">
-          <p>Entrega</p>
-          <p>R$ {deliveryValue}</p>
-        </div>
-        <div>
-          <h3>Total</h3>
-          <h3>R$ {totalPrice}</h3>
-        </div>
-      </ValuesDetails>
+      {uniqueCoffees.length ? (
+        <>
+          <ValuesDetails>
+            <div>
+              <p className="heading">Total de itens</p>
+              <p>R$ {sumCoffeesPrice}</p>
+            </div>
+            <div className="heading">
+              <p>Entrega</p>
+              <p>R$ {deliveryValue}</p>
+            </div>
+            <div>
+              <h3>Total</h3>
+              <h3>R$ {totalPrice}</h3>
+            </div>
+          </ValuesDetails>
 
-      <ConfirmOderButton href="/success">confirmar pedido</ConfirmOderButton>
+          <ConfirmOderButton type="submit">confirmar pedido</ConfirmOderButton>
+        </>
+      ) : (
+        ''
+      )}
     </OrderInfosContainer>
   )
 }
@@ -124,7 +130,9 @@ function calculateSumCoffeesPrice(coffees: CoffeeType[]) {
 }
 
 function calculateTotalPrice(sumCoffeesPrice: string, deliveryValue: string) {
-  const totalPrice = parseFloat(sumCoffeesPrice) + parseFloat(deliveryValue)
+  const formattedDeliveryValue = deliveryValue.replace(',', '.')
+  const totalPrice =
+    parseFloat(sumCoffeesPrice) + parseFloat(formattedDeliveryValue)
   return formatCurrency(totalPrice)
 }
 

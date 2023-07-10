@@ -8,8 +8,18 @@ import {
 } from './styles'
 
 import successIllustration from '../../assets/illustration.svg'
+import { useContext } from 'react'
+import { CoffeesContext } from '../../context/CoffeesContext'
+
+enum PaymentMethods {
+  creditCard = 'Cartão de crédito',
+  debitCard = 'Cartão de débito',
+  cash = 'Dinheiro',
+}
 
 export function Success() {
+  const { completeOrder } = useContext(CoffeesContext)
+
   return (
     <SuccessContainer>
       <div className="heading">
@@ -47,7 +57,10 @@ export function Success() {
 
             <div>
               <p>Pagamento na entrega </p>
-              <strong>Cartão de Crédito</strong>
+              <strong>
+                {completeOrder?.deliveryAddress.paymentMethod &&
+                  PaymentMethods[completeOrder?.deliveryAddress.paymentMethod]}
+              </strong>
             </div>
           </OrderSection>
         </OrderReceiptContainer>

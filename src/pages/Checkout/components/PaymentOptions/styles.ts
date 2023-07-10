@@ -36,20 +36,29 @@ export const PaymentMethodsContainer = styled.div`
   grid-gap: 12px;
 `
 
-export const PaymentMethodButton = styled.button`
+interface PaymentMethodButtonProps {
+  isSelected?: boolean
+  error?: boolean
+}
+
+export const PaymentMethodButton = styled.label<PaymentMethodButtonProps>`
   display: flex;
   align-items: center;
+
+  ${(props) => props.error && `border: 1px solid ${props.theme['base-red']};`}
+
   gap: 12px;
-  background-color: ${(props) => props.theme['base-button']};
+  background-color: ${(props) =>
+    props.isSelected
+      ? props.theme['purple-light']
+      : props.theme['base-button']};
+
+  cursor: pointer;
 
   border-radius: 6px;
   padding: 16px;
 
   &:hover {
-    background-color: ${(props) => props.theme['base-hover']};
-  }
-
-  &:active {
     background-color: ${(props) => props.theme['purple-light']};
   }
 
@@ -57,4 +66,15 @@ export const PaymentMethodButton = styled.button`
     font-size: 12px;
     text-transform: uppercase;
   }
+
+  input[type='radio'] {
+    display: none;
+  }
+`
+export const ErrorTest = styled.div`
+  font-size: 14px;
+  text-align: center;
+  color: ${(props) => props.theme['base-red']};
+  font-style: italic;
+  margin-top: 6px;
 `

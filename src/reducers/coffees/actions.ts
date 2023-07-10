@@ -12,6 +12,7 @@ export enum ActionTypes {
   ADD_COFFEE = 'ADD_COFFEE',
   REDUCE_COFFEE = 'REDUCE_COFFEE',
   REMOVE_COFFEE = 'REMOVE_COFFEE',
+  CLEAR_COFFEE_CART = 'CLEAR_COFFEE_CART',
 }
 
 export function addNewCoffeeToCart(currentCoffee: CoffeeType) {
@@ -40,5 +41,11 @@ export function removeCoffeeFromCart(id: number) {
   return {
     type: ActionTypes.REMOVE_COFFEE,
     payload: id,
+  }
+}
+
+export function clearCoffeeCart() {
+  return {
+    type: ActionTypes.CLEAR_COFFEE_CART,
   }
 }

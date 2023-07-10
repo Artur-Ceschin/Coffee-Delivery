@@ -7,10 +7,19 @@ import {
   AddressFormContainer,
   FlexAddressForm,
   HeadingTitle,
+  InputContainer,
 } from './styles'
+import { useFormContext } from 'react-hook-form'
+import { NewAddressFormData } from '../..'
 
 export function AddressDetails() {
   const theme = useTheme()
+
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<NewAddressFormData>()
+
   return (
     <AddressContainer>
       <HeadingTitle className="heading">
@@ -24,20 +33,51 @@ export function AddressDetails() {
       </HeadingTitle>
 
       <AddressFormContainer>
-        <div>
-          <BaseInput width={200} type="text" placeholder="CEP" />
-        </div>
-        <div>
-          <BaseInput type="text" placeholder="Rua" />
-        </div>
+        <InputContainer width={200}>
+          <BaseInput
+            id="cep"
+            type="text"
+            placeholder="CEP"
+            {...register('cep')}
+          />
+          {errors.cep && <span>{errors.cep.message}</span>}
+        </InputContainer>
+
+        <InputContainer>
+          <BaseInput
+            id="street"
+            type="text"
+            placeholder="Rua"
+            {...register('street')}
+          />
+          {errors.street && <span>{errors.street.message}</span>}
+        </InputContainer>
         <FlexAddressForm>
-          <BaseInput placeholder="Número" width={200} />
-          <BaseInput placeholder="Complemento" />
+          <InputContainer width={200}>
+            <BaseInput
+              placeholder="Número"
+              {...register('number', { valueAsNumber: true })}
+            />
+            {errors.number && <span>{errors.number.message}</span>}
+          </InputContainer>
+          <InputContainer>
+            <BaseInput placeholder="Complemento" {...register('additional')} />
+            {errors.additional && <span>{errors.additional.message}</span>}
+          </InputContainer>
         </FlexAddressForm>
         <FlexAddressForm>
-          <BaseInput placeholder="Bairro" width={200} />
-          <BaseInput placeholder="Cidade" />
-          <BaseInput placeholder="UF" width={60} />
+          <InputContainer width={200}>
+            <BaseInput placeholder="Bairro" {...register('neighborhood')} />
+            {errors.neighborhood && <span>{errors.neighborhood.message}</span>}
+          </InputContainer>
+          <InputContainer>
+            <BaseInput placeholder="Cidade" {...register('city')} />
+            {errors.city && <span>{errors.city.message}</span>}
+          </InputContainer>
+          <InputContainer width={60}>
+            <BaseInput placeholder="UF" {...register('state')} />
+            {errors.state && <span>{errors.state.message}</span>}
+          </InputContainer>
         </FlexAddressForm>
       </AddressFormContainer>
     </AddressContainer>

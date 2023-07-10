@@ -26,4 +26,5 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-appearance: none;
     background: none;
   }
+
 `

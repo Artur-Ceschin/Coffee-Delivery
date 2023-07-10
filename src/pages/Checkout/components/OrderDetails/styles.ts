@@ -134,7 +134,7 @@ export const ValuesDetails = styled.div`
   }
 `
 
-export const ConfirmOderButton = styled.a`
+export const ConfirmOderButton = styled.button`
   width: 100%;
   padding: 12px 8px;
   border-radius: 6px;
