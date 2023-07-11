@@ -10,6 +10,7 @@ export const OrderInfosContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 
   border-radius: 6px 44px;
 
@@ -111,6 +112,10 @@ export const AddOrRemoveItem = styled.div`
   }
 `
 export const RemoveItem = styled(BaseButtonAction)``
+
+export const ConfirmContainer = styled.div`
+  width: 100%;
+`
 
 export const ValuesDetails = styled.div`
   width: 100%;

@@ -11,6 +11,7 @@ import {
   ValuesDetails,
   ConfirmOderButton,
   OrderInfosContainer,
+  ConfirmContainer,
 } from './styles'
 
 import { CoffeesContext } from '../../../../context/CoffeesContext'
@@ -92,7 +93,7 @@ export function OrderDetails() {
       ))}
 
       {uniqueCoffees.length ? (
-        <>
+        <ConfirmContainer>
           <ValuesDetails>
             <div>
               <p className="heading">Total de itens</p>
@@ -109,7 +110,7 @@ export function OrderDetails() {
           </ValuesDetails>
 
           <ConfirmOderButton type="submit">confirmar pedido</ConfirmOderButton>
-        </>
+        </ConfirmContainer>
       ) : (
         ''
       )}

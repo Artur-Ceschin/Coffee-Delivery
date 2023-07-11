@@ -19,7 +19,8 @@ const newAddressFormValidationSchema = zod.object({
   cep: zod
     .string()
     .nonempty('Informe o CEP')
-    .regex(/^\d{5}-\d{3}$/, 'CEP inválido'),
+    .min(8, 'CEP inválido')
+    .max(9, 'CEP inválido'),
   street: zod.string().nonempty('Informe a Rua').min(1, 'Rua Inválida'),
   number: zod.number().min(1, 'Informe seu número'),
   additional: zod.string().optional(),

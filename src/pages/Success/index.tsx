@@ -13,7 +13,7 @@ import { CoffeesContext } from '../../context/CoffeesContext'
 
 enum PaymentMethods {
   creditCard = 'Cartão de crédito',
-  debitCard = 'Cartão de débito',
+  debitCart = 'Cartão de débito',
   cash = 'Dinheiro',
 }
 

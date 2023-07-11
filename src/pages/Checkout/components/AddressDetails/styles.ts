@@ -82,3 +82,24 @@ export const BaseInput = styled.input`
     outline: none;
   }
 `
+export const BaseSelect = styled.select`
+  appearance: none;
+  background-color: ${(props) => props.theme['base-input']};
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  width: 100%;
+  height: 44px;
+
+  border: 1px solid ${(props) => props.theme['base-button']};
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  option {
+    font-size: 18px;
+    color: ${(props) => props.theme['base-label']};
+  }
+`

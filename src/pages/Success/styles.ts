@@ -1,7 +1,9 @@
 import { styled } from 'styled-components'
 
 export const SuccessContainer = styled.div`
-  margin-top: 80px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 80px auto;
 
   .heading {
     h2 {
