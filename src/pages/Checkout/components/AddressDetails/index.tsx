@@ -8,9 +8,24 @@ import {
   FlexAddressForm,
   HeadingTitle,
   InputContainer,
+  BaseSelect,
 } from './styles'
 import { useFormContext } from 'react-hook-form'
 import { NewAddressFormData } from '../..'
+import { UF } from '../../../../utils/states'
+
+interface ViaCepType {
+  cep: string
+  logradouro: string
+  complemento: string
+  bairro: string
+  localidade: string
+  uf: string
+  ibge: number
+  gia: number
+  ddd: number
+  siafi: number
+}
 
 export function AddressDetails() {
   const theme = useTheme()
@@ -18,7 +33,33 @@ export function AddressDetails() {
   const {
     register,
     formState: { errors },
+    watch,
+    setValue,
   } = useFormContext<NewAddressFormData>()
+
+  async function onBlurGetCEPData() {
+    try {
+      const cep = watch('cep')
+
+      const formattedCep = cep?.replace(/[^0-9]/g, '')
+
+      if (formattedCep.length !== 8) {
+        return null
+      }
+
+      const cepData = await fetch(
+        `https://viacep.com.br/ws/${formattedCep}/json/`,
+      )
+      const response: ViaCepType = await cepData.json()
+
+      setValue('street', response.logradouro)
+      setValue('neighborhood', response.bairro)
+      setValue('city', response.localidade)
+      setValue('state', response.uf)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   return (
     <AddressContainer>
@@ -39,6 +80,7 @@ export function AddressDetails() {
             type="text"
             placeholder="CEP"
             {...register('cep')}
+            onBlur={onBlurGetCEPData}
           />
           {errors.cep && <span>{errors.cep.message}</span>}
         </InputContainer>
@@ -75,7 +117,18 @@ export function AddressDetails() {
             {errors.city && <span>{errors.city.message}</span>}
           </InputContainer>
           <InputContainer width={60}>
-            <BaseInput placeholder="UF" {...register('state')} />
+            <BaseSelect aria-label="Estados UF" {...register('state')} id="uf">
+              <option value="" disabled selected>
+                UF
+              </option>
+              {Object.values(UF).map((uf: UF) => (
+                <>
+                  <option key={uf} value={uf}>
+                    {uf}
+                  </option>
+                </>
+              ))}
+            </BaseSelect>
             {errors.state && <span>{errors.state.message}</span>}
           </InputContainer>
         </FlexAddressForm>
