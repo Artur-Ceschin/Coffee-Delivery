@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const PaymentOptionsContainer = styled.div`
   height: 100%;
-  max-height: 207px;
 
   padding: 2.5rem;
 
@@ -37,21 +36,20 @@ export const PaymentMethodsContainer = styled.div`
 `
 
 interface PaymentMethodButtonProps {
-  isSelected?: boolean
-  error?: boolean
+  checked?: boolean
+  error_border?: number
 }
 
 export const PaymentMethodButton = styled.label<PaymentMethodButtonProps>`
   display: flex;
   align-items: center;
 
-  ${(props) => props.error && `border: 1px solid ${props.theme['base-red']};`}
+  ${(props) =>
+    props.error_border && `border: 1px solid ${props.theme['base-red']};`}
 
   gap: 12px;
   background-color: ${(props) =>
-    props.isSelected
-      ? props.theme['purple-light']
-      : props.theme['base-button']};
+    props.checked ? props.theme['purple-light'] : props.theme['base-button']};
 
   cursor: pointer;
 

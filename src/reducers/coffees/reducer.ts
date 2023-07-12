@@ -1,3 +1,4 @@
+import { produce } from 'immer'
 import { ActionTypes } from './actions'
 
 interface CoffeeType {
@@ -13,21 +14,22 @@ interface CoffeeType {
 export function coffeesOnCartReducer(state: CoffeeType[], action: any) {
   switch (action.type) {
     case ActionTypes.ADD_COFFEE:
-      return [...state, action.payload]
+      return produce(state, (draft) => {
+        draft.push(action.payload)
+      })
 
     case ActionTypes.REDUCE_COFFEE: {
-      const updatedCoffeeCartList = [...state]
-      updatedCoffeeCartList.splice(action.payload, 1)
-      updatedCoffeeCartList.sort((a, b) => a.id - b.id)
-      return updatedCoffeeCartList
+      return produce(state, (draft) => {
+        draft.splice(action.payload, 1)
+        draft.sort((a, b) => a.id - b.id)
+      })
     }
 
     case ActionTypes.REMOVE_COFFEE: {
-      const updatedCoffeeCartList: CoffeeType[] = state.filter(
-        (coffee) => coffee.id !== action.payload,
-      )
-
-      return updatedCoffeeCartList
+      return produce(state, (draft) => {
+        draft = draft.filter((draft) => draft.id !== action.payload)
+        return draft
+      })
     }
 
     case ActionTypes.CLEAR_COFFEE_CART:

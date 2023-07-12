@@ -2,17 +2,11 @@ import styled from 'styled-components'
 
 export const AddressContainer = styled.div`
   height: 100%;
-  /* max-height: 372px; */
-
   padding: 2.5rem;
-
   border-radius: 6px;
-
-  background-color: ${(props) => props.theme['base-card']};
-
+  background-color: ${({ theme }) => theme['base-card']};
   display: flex;
   flex-direction: column;
-
   gap: 2rem;
 `
 
@@ -23,12 +17,12 @@ export const HeadingTitle = styled.div`
   h3 {
     font-size: 16px;
     font-weight: normal;
-    color: ${(props) => props.theme['base-subtitle']};
+    color: ${({ theme }) => theme['base-subtitle']};
     line-height: 130%;
   }
 
   .subtitle {
-    color: ${(props) => props.theme['base-text']};
+    color: ${({ theme }) => theme['base-text']};
     font-size: 14px;
     line-height: 130%;
   }

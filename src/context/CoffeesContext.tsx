@@ -62,9 +62,7 @@ export function CoffeesContextProvider({
 }: CoffeesContextProviderProps) {
   const [coffeesOnCart, dispatch] = useReducer(
     coffeesOnCartReducer,
-    {
-      coffeesOnCart: [],
-    },
+    [],
     (initialState) => {
       const storedStateJSON = localStorage.getItem(
         '@coffee-delivery:coffees-on=-cart-1.0.0',

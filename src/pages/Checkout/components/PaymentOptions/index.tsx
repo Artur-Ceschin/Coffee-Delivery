@@ -36,8 +36,8 @@ export function PaymentOptions() {
       <PaymentMethodsContainer>
         <PaymentMethodButton
           htmlFor="creditCard"
-          isSelected={paymentMethod === 'creditCard'}
-          error={!!errors.paymentMethod}
+          checked={paymentMethod === 'creditCard'}
+          error_border={errors.paymentMethod ? 1 : 0}
         >
           <CreditCard color={theme?.purple} />
           <input
@@ -51,8 +51,8 @@ export function PaymentOptions() {
 
         <PaymentMethodButton
           htmlFor="debitCart"
-          isSelected={paymentMethod === 'debitCart'}
-          error={!!errors.paymentMethod}
+          checked={paymentMethod === 'debitCart'}
+          error_border={errors.paymentMethod ? 1 : 0}
         >
           <Bank color={theme?.purple} />
 
@@ -67,8 +67,8 @@ export function PaymentOptions() {
 
         <PaymentMethodButton
           htmlFor="cash"
-          isSelected={paymentMethod === 'cash'}
-          error={!!errors.paymentMethod}
+          checked={paymentMethod === 'cash'}
+          error_border={errors.paymentMethod ? 1 : 0}
         >
           <Money color={theme?.purple} />
 

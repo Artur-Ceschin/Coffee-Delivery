@@ -118,15 +118,13 @@ export function AddressDetails() {
           </InputContainer>
           <InputContainer width={60}>
             <BaseSelect aria-label="Estados UF" {...register('state')} id="uf">
-              <option value="" disabled selected>
+              <option value="" disabled defaultValue="UF">
                 UF
               </option>
               {Object.values(UF).map((uf: UF) => (
-                <>
-                  <option key={uf} value={uf}>
-                    {uf}
-                  </option>
-                </>
+                <option key={uf} value={uf}>
+                  {uf}
+                </option>
               ))}
             </BaseSelect>
             {errors.state && <span>{errors.state.message}</span>}
