@@ -37,6 +37,11 @@ export function AddressDetails() {
     setValue,
   } = useFormContext<NewAddressFormData>()
 
+  const street = watch('street')
+  const neighborhood = watch('neighborhood')
+  const city = watch('city')
+  const state = watch('state')
+
   async function onBlurGetCEPData() {
     try {
       const cep = watch('cep')
@@ -92,7 +97,7 @@ export function AddressDetails() {
             placeholder="Rua"
             {...register('street')}
           />
-          {errors.street && <span>{errors.street.message}</span>}
+          {errors.street && !street && <span>{errors.street.message}</span>}
         </InputContainer>
         <FlexAddressForm>
           <InputContainer width={200}>
@@ -110,11 +115,13 @@ export function AddressDetails() {
         <FlexAddressForm>
           <InputContainer width={200}>
             <BaseInput placeholder="Bairro" {...register('neighborhood')} />
-            {errors.neighborhood && <span>{errors.neighborhood.message}</span>}
+            {errors.neighborhood && !neighborhood && (
+              <span>{errors.neighborhood.message}</span>
+            )}
           </InputContainer>
           <InputContainer>
             <BaseInput placeholder="Cidade" {...register('city')} />
-            {errors.city && <span>{errors.city.message}</span>}
+            {errors.city && !city && <span>{errors.city.message}</span>}
           </InputContainer>
           <InputContainer width={60}>
             <BaseSelect aria-label="Estados UF" {...register('state')} id="uf">
@@ -127,7 +134,7 @@ export function AddressDetails() {
                 </option>
               ))}
             </BaseSelect>
-            {errors.state && <span>{errors.state.message}</span>}
+            {errors.state && !state && <span>{errors.state.message}</span>}
           </InputContainer>
         </FlexAddressForm>
       </AddressFormContainer>
