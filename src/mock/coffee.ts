@@ -14,7 +14,7 @@ export const coffees = [
     title: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
     image: 'american-express.png',
-    price: 9.9,
+    price: 12.5,
     quantity: 0,
   },
   {
@@ -23,7 +23,7 @@ export const coffees = [
     title: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
     image: 'creamy-express.png',
-    price: 9.9,
+    price: 11.99,
     quantity: 0,
   },
   {
@@ -32,7 +32,7 @@ export const coffees = [
     title: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
     image: 'ice-cream-express.png',
-    price: 9.9,
+    price: 8.7,
     quantity: 0,
   },
   {
@@ -51,7 +51,7 @@ export const coffees = [
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     image: 'latte.png',
-    price: 9.9,
+    price: 19.5,
     quantity: 0,
   },
   {
@@ -61,7 +61,7 @@ export const coffees = [
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     image: 'capuccino.png',
-    price: 9.9,
+    price: 9.99,
     quantity: 0,
   },
   {
@@ -71,7 +71,7 @@ export const coffees = [
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
     image: 'macchiato.png',
-    price: 9.9,
+    price: 5.99,
     quantity: 0,
   },
   {
@@ -80,7 +80,7 @@ export const coffees = [
     title: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     image: 'mocaccino.png',
-    price: 9.9,
+    price: 9.99,
     quantity: 0,
   },
   {
@@ -89,7 +89,7 @@ export const coffees = [
     title: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     image: 'hot-chocolate.png',
-    price: 9.9,
+    price: 12.99,
     quantity: 0,
   },
   {
@@ -99,7 +99,7 @@ export const coffees = [
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     image: 'cuban.png',
-    price: 9.9,
+    price: 19.99,
     quantity: 0,
   },
   {
@@ -108,7 +108,7 @@ export const coffees = [
     title: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
     image: 'hawaiian.png',
-    price: 9.9,
+    price: 17.99,
     quantity: 0,
   },
   {
@@ -117,7 +117,7 @@ export const coffees = [
     title: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     image: 'arabic.png',
-    price: 9.9,
+    price: 8.99,
     quantity: 0,
   },
   {
@@ -126,7 +126,7 @@ export const coffees = [
     title: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     image: 'irish.png',
-    price: 9.9,
+    price: 13.99,
     quantity: 0,
   },
 ]

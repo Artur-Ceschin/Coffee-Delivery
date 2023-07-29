@@ -21,7 +21,7 @@ export function Header() {
       <RightHeaderContainer>
         <AddressesContainer>
           <MapPin size={22} color={theme?.purple} weight="fill" />
-          <p>Porto Alegre, RS</p>
+          <p>São Paulo, SP</p>
         </AddressesContainer>
 
         <Link to="/checkout">

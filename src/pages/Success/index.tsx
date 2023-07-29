@@ -32,7 +32,7 @@ export function Success() {
 
             <p>
               Entrega em <span>Rua João Daniel Martinelli, 102</span> Farrapos -
-              Porto Alegre, RS
+              São Paulo, SP
             </p>
           </OrderSection>
           <OrderSection>
