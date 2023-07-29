@@ -6,11 +6,10 @@ import {
   CoffeeOptionContent,
   CoffeePrice,
 } from './styles'
-import { useContext } from 'react'
-import { CoffeesContext } from '../../../../context/CoffeesContext'
+
 import { Link } from 'react-router-dom'
 
-interface CoffeeCardProps {
+export interface CoffeeDetails {
   id: number
   tags: string[]
   title: string
@@ -20,31 +19,12 @@ interface CoffeeCardProps {
   quantity: number
 }
 
-export function CoffeeCard({
-  id,
-  title,
-  tags,
-  description,
-  image,
-  price,
-  quantity,
-}: CoffeeCardProps) {
-  const { coffeesOnCart, decreaseCoffeeQuantity, increaseCoffeeQuantity } =
-    useContext(CoffeesContext)
+interface CoffeeCardProps {
+  coffeeDetails: CoffeeDetails
+}
 
-  const currentCoffeeData = {
-    id,
-    title,
-    tags,
-    description,
-    image,
-    price,
-    quantity,
-  }
-
-  const totalCoffeesQuantity = coffeesOnCart.filter(
-    (cartsCoffee) => cartsCoffee.id === id,
-  ).length
+export function CoffeeCard({ coffeeDetails }: CoffeeCardProps) {
+  const { description, image, price, tags, title, id } = coffeeDetails
 
   return (
     <CoffeeOptionContainer>
@@ -69,19 +49,11 @@ export function CoffeeCard({
             <p>{price}</p>
           </div>
           <div className="quantity">
-            <button
-              type="button"
-              aria-label="Diminuir quantidade"
-              onClick={() => decreaseCoffeeQuantity(id)}
-            >
+            <button type="button" aria-label="Diminuir quantidade">
               <Minus size={14} />
             </button>
-            <span>{totalCoffeesQuantity}</span>
-            <button
-              type="button"
-              aria-label="Aumentar quantidade"
-              onClick={() => increaseCoffeeQuantity(currentCoffeeData)}
-            >
+            <span>{0}</span>
+            <button type="button" aria-label="Aumentar quantidade">
               <Plus size={14} />
             </button>
           </div>

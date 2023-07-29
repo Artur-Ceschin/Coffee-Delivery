@@ -13,7 +13,6 @@ import { useNavigate } from 'react-router-dom'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { useContext } from 'react'
-import { CoffeesContext } from '../../context/CoffeesContext'
 
 const newAddressFormValidationSchema = zod.object({
   cep: zod
@@ -39,7 +38,6 @@ interface AddressType extends NewAddressFormData {
 }
 
 export function Checkout() {
-  const { createCoffeeOrder, emptyCart } = useContext(CoffeesContext)
   const navigate = useNavigate()
 
   const newAddressForm = useForm<NewAddressFormData>({
@@ -72,9 +70,8 @@ export function Checkout() {
         paymentMethod: data.paymentMethod,
       }
 
-      createCoffeeOrder(newCoffeeRequest)
       reset()
-      emptyCart()
+
       navigate('/success')
     } catch (error) {
       console.error(error)

@@ -16,16 +16,7 @@ export function Home() {
         <h1>Nossos cafés</h1>
         <OurCoffeesContainer>
           {coffees.map((coffee) => (
-            <CoffeeCard
-              id={coffee.id}
-              title={coffee.title}
-              image={coffee.image}
-              description={coffee.description}
-              price={coffee.price}
-              tags={coffee.tags}
-              quantity={coffee.quantity}
-              key={coffee.id}
-            />
+            <CoffeeCard coffeeDetails={coffee} key={coffee.id} />
           ))}
         </OurCoffeesContainer>
       </CoffeeOptionsContainer>

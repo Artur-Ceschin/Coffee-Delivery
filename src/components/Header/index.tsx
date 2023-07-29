@@ -9,13 +9,8 @@ import {
 } from './styles'
 import { useTheme } from 'styled-components'
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
-import { CoffeesContext } from '../../context/CoffeesContext'
+
 export function Header() {
-  const { coffeesOnCart } = useContext(CoffeesContext)
-
-  const coffeesOnCartQuantity = coffeesOnCart.length
-
   const theme = useTheme()
   return (
     <HeaderContainer>
@@ -36,13 +31,6 @@ export function Header() {
               weight="fill"
               color={theme?.['yellow-dark']}
             />
-            {coffeesOnCartQuantity ? (
-              <CartQuantityCircle className="quantity-on-cart">
-                {coffeesOnCartQuantity}
-              </CartQuantityCircle>
-            ) : (
-              ''
-            )}
           </CartButton>
         </Link>
       </RightHeaderContainer>
