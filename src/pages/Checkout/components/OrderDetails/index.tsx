@@ -12,50 +12,77 @@ import {
   OrderInfosContainer,
   ConfirmContainer,
 } from './styles'
+import { CartContext } from '../../../../context/CartContext'
+import { useContext } from 'react'
 
 export function OrderDetails() {
+  const {
+    addCoffeeToCart,
+    coffeesOnCart,
+    reduceCoffeeFromCart,
+    removeCoffeeFromCart,
+  } = useContext(CartContext)
+
   const deliveryValue = 3.5
   const formattedDeliveryValue = formatCurrency(3.5)
+
+  const totalItemsValue = coffeesOnCart.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.price * currentValue.quantity
+  }, 0)
+
+  const formattedTotalItemsValue = formatCurrency(totalItemsValue)
+
+  const totalValue = formatCurrency(deliveryValue + totalItemsValue)
 
   const theme = useTheme()
   return (
     <OrderInfosContainer>
-      <CoffeeCardContainer>
-        <CoffeeCardDetails>
-          <div className="coffee-box">
-            <img src={`coffees/traditional-express.png`} alt="" />
-            <div className="details">
-              <p>Expresso Tradicional</p>
-              <div className="actions">
-                <AddOrRemoveItem>
-                  <button type="button" aria-label="Diminuir quantidade">
-                    <Minus size={14} color={theme?.purple} />
-                  </button>{' '}
-                  2
-                  <button type="button" aria-label="Aumentar quantidade">
-                    <Plus size={14} color={theme?.purple} />
-                  </button>
-                </AddOrRemoveItem>
-                <RemoveItem>
-                  <Trash size={14} color={theme?.purple} /> remover
-                </RemoveItem>
+      {coffeesOnCart.map((coffee) => (
+        <CoffeeCardContainer key={coffee.id}>
+          <CoffeeCardDetails>
+            <div className="coffee-box">
+              <img src={`coffees/${coffee.image}`} alt="" />
+              <div className="details">
+                <p>{coffee.title}</p>
+                <div className="actions">
+                  <AddOrRemoveItem>
+                    <button
+                      onClick={() => reduceCoffeeFromCart(coffee.id)}
+                      type="button"
+                      aria-label="Diminuir quantidade"
+                    >
+                      <Minus size={14} color={theme?.purple} />
+                    </button>{' '}
+                    {coffee.quantity}
+                    <button
+                      onClick={() => addCoffeeToCart(coffee)}
+                      type="button"
+                      aria-label="Aumentar quantidade"
+                    >
+                      <Plus size={14} color={theme?.purple} />
+                    </button>
+                  </AddOrRemoveItem>
+                  <RemoveItem onClick={() => removeCoffeeFromCart(coffee.id)}>
+                    <Trash size={14} color={theme?.purple} /> remover
+                  </RemoveItem>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="price">
-            <p>R$ {formatCurrency(12.99)}</p>
-          </div>
-        </CoffeeCardDetails>
+            <div className="price">
+              <p>R$ {formatCurrency(coffee.price)}</p>
+            </div>
+          </CoffeeCardDetails>
 
-        <Divider />
-      </CoffeeCardContainer>
+          <Divider />
+        </CoffeeCardContainer>
+      ))}
 
       <ConfirmContainer>
         <ValuesDetails>
           <div>
             <p className="heading">Total de itens</p>
-            <p>R$ 22,50</p>
+            <p>R$ {formattedTotalItemsValue}</p>
           </div>
           <div className="heading">
             <p>Entrega</p>
@@ -63,7 +90,7 @@ export function OrderDetails() {
           </div>
           <div>
             <h3>Total</h3>
-            <h3>R$ 26,00</h3>
+            <h3>R$ {totalValue}</h3>
           </div>
         </ValuesDetails>
 

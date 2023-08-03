@@ -9,6 +9,9 @@ import {
 
 import { Link } from 'react-router-dom'
 
+import { useContext, useEffect, useState } from 'react'
+import { CartContext } from '../../../../context/CartContext'
+
 export interface CoffeeDetails {
   id: number
   tags: string[]
@@ -25,6 +28,17 @@ interface CoffeeCardProps {
 
 export function CoffeeCard({ coffeeDetails }: CoffeeCardProps) {
   const { description, image, price, tags, title, id } = coffeeDetails
+
+  const [quantity, setQuantity] = useState(0)
+
+  const { addCoffeeToCart, coffeesOnCart, reduceCoffeeFromCart } =
+    useContext(CartContext)
+
+  useEffect(() => {
+    const currentCoffee = coffeesOnCart.find((coffee) => coffee.id === id)
+
+    setQuantity(currentCoffee ? currentCoffee.quantity : 0)
+  }, [id, coffeesOnCart])
 
   return (
     <CoffeeOptionContainer>
@@ -49,11 +63,19 @@ export function CoffeeCard({ coffeeDetails }: CoffeeCardProps) {
             <p>{price}</p>
           </div>
           <div className="quantity">
-            <button type="button" aria-label="Diminuir quantidade">
+            <button
+              onClick={() => reduceCoffeeFromCart(id)}
+              type="button"
+              aria-label="Diminuir quantidade"
+            >
               <Minus size={14} />
             </button>
-            <span>{0}</span>
-            <button type="button" aria-label="Aumentar quantidade">
+            <span>{quantity}</span>
+            <button
+              onClick={() => addCoffeeToCart(coffeeDetails)}
+              type="button"
+              aria-label="Aumentar quantidade"
+            >
               <Plus size={14} />
             </button>
           </div>

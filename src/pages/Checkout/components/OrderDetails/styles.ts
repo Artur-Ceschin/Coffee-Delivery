@@ -47,7 +47,7 @@ export const CoffeeCardDetails = styled.div`
 
   .coffee-box {
     display: flex;
-    /* justify-content: space-between; */
+
     gap: 20px;
     img {
       width: 64px;
